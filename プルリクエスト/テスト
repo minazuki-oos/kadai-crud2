@@ -1,0 +1,7 @@
+# テスト用ファイルを作りました
+
+SQL文 CRUD 機能
+INSERT文 Create データ追加
+SELECT文 Read データ取得
+UPDATE文 Update データ更新
+DELETE文 Delete データ削除
