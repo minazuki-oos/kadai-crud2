@@ -1,0 +1,21 @@
+version: '3'
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: fish_database
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "3311:3306"
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+      - ./my.cnf:/etc/mysql/my.cnf
+    restart: always
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
