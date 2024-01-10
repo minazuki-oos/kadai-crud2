@@ -3,6 +3,7 @@ package com.example.demo;
 import java.util.List;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class FishService {
 
@@ -13,21 +14,17 @@ public class FishService {
   }
 
   public List<Fish> getAllFish() {
-    List<Fish> fishList = fishMapper.findAll();
-    return fishList;
+    return fishMapper.findAll();
   }
 
   public Fish createFish(Fish fish) {
-    // 作成ロジックを実装
-    fishMapper.save(fish);
-    // 戻り値がないので、何も返さない（void）
+    fishMapper.insertsave(fish);
     return fish;
   }
 
-
   public Fish getFishById(Long id) {
-    // IDを使用してFishを取得するロジックを実装
-    Fish fish = fishMapper.findById(id).orElse(new Fish("魚がいません", "")); // 引数を受け取るコンストラクタを使用
-    return fish;
+    return fishMapper.findById(id)
+        .orElseThrow(
+            () -> new FishNotFoundException("指定されたIDの魚は見つかりませんでした: " + id));
   }
 }
