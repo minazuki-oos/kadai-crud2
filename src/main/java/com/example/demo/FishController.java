@@ -46,7 +46,7 @@ public class FishController {
     return ResponseEntity.ok(fish);
   }
 
-  @GetMapping("/all")
+  @GetMapping("/all_fish")
   public ResponseEntity<List<Fish>> getAllFish() {
     List<Fish> allFish = fishService.getAllFish();
     return ResponseEntity.ok(allFish);
